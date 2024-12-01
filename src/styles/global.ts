@@ -14,8 +14,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-  color: inherit;
-  text-decoration: inherit;
+   color: inherit;
+   text-decoration: inherit;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
   .poppins-light {
