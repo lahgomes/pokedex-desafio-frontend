@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
   }
 
+  a {
+  color: inherit;
+  text-decoration: inherit;
+  }
+
   .poppins-light {
     font-family: "Poppins", sans-serif;
     font-weight: 300;

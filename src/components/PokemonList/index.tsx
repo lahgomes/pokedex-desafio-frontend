@@ -100,30 +100,33 @@ export default function PokemonList() {
   }
 
   return (
-    <S.List>
-      {pokemons.map((pokemon) => {
-        console.log('🚀 ~ {pokemons.map ~ pokemon:', pokemon);
-        const pokemonType = pokemon.types[0].type.name;
+    <S.Layout>
+      <S.Title>Encontre todos os pokémons por aqui</S.Title>
+      <S.List>
+        {pokemons.map((pokemon) => {
+          console.log('🚀 ~ {pokemons.map ~ pokemon:', pokemon);
+          const pokemonType = pokemon.types[0].type.name;
 
-        return (
-          <S.Card key={pokemon.id} bgcolor={COLORS[pokemonType]}>
-            <S.Container>
-              <S.FavoriteButton
-                title="Salvar como favorito"
-                onClick={() => onFavoritePokemon(pokemon.id)}
-                isfavorite={favoriteIds.includes(pokemon.id)}
-              >
-                <MdFavoriteBorder />
-              </S.FavoriteButton>
-              <S.Name>{pokemon.name}</S.Name>
-            </S.Container>
-            <S.Image
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-              alt={pokemon.name}
-            />
-          </S.Card>
-        );
-      })}
-    </S.List>
+          return (
+            <S.Card key={pokemon.id} bgcolor={COLORS[pokemonType]}>
+              <S.Container>
+                <S.FavoriteButton
+                  title="Salvar como favorito"
+                  onClick={() => onFavoritePokemon(pokemon.id)}
+                  isfavorite={favoriteIds.includes(pokemon.id)}
+                >
+                  <MdFavoriteBorder />
+                </S.FavoriteButton>
+                <S.Name>{pokemon.name}</S.Name>
+              </S.Container>
+              <S.Image
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                alt={pokemon.name}
+              />
+            </S.Card>
+          );
+        })}
+      </S.List>
+    </S.Layout>
   );
 }

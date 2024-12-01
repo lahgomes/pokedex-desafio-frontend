@@ -16,6 +16,18 @@ export const Loading = styled.div`
   width: 100%;
 `;
 
+export const Title = styled.h1`
+  color: #919191;
+  margin-bottom: 16px;
+  text-align: center;
+`;
+
+export const Layout = styled.section`
+  max-width: 1024px;
+  margin: 0 auto;
+  margin-top: 48px;
+`;
+
 export const List = styled.section`
   width: 100%;
   display: grid;
