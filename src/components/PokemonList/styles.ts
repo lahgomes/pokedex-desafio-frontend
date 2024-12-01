@@ -66,7 +66,7 @@ export const Image = styled.img`
 
 export const Name = styled.h2`
   color: #ffff;
-  font-size: 2rem;
+  font-size: 24px;
 `;
 
 export const FavoriteButton = styled.button<FavoriteButtonProps>`
