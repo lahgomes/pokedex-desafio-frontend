@@ -9,7 +9,7 @@ export default function Search() {
     <S.SearchContainer>
       <S.InputSearch
         type="search"
-        placeholder="Busque seu pokémon..."
+        placeholder="Busque o nome do seu pokémon..."
         value={term}
         onChange={onChangeTerm}
       />

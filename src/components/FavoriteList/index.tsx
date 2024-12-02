@@ -1,8 +1,13 @@
-import { useService } from '../../provider/ServiceProvider';
+import { Pokemon } from '../../types';
 import Grid from '../Grid';
 import PokemonCard from '../PokemonCard';
 import Skeleton from '../Skeleton';
 import styled from 'styled-components';
+
+interface FavoriteListProps {
+  favoritePokemons: Pokemon[];
+  loading: boolean;
+}
 
 const Message = styled.div`
   display: flex;
@@ -13,9 +18,10 @@ const Message = styled.div`
   font-size: 24px;
 `;
 
-export default function FavoriteList() {
-  const { favoritePokemons, loading } = useService();
-
+export default function FavoriteList({
+  favoritePokemons,
+  loading,
+}: FavoriteListProps) {
   if (favoritePokemons.length === 0) {
     return <Message>Nenhum pokémon favorito encontrado</Message>;
   }

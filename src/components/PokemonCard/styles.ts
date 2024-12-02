@@ -5,7 +5,7 @@ interface CardProps {
 }
 
 export const Card = styled.div<CardProps>`
-  flex: 1 1 calc(33.33% - 32px);
+  flex: 1 1 calc(100% - 32px);
   border-radius: 12px;
   padding: 16px;
   text-align: center;
@@ -18,10 +18,14 @@ export const Card = styled.div<CardProps>`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 320px;
 
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 768px) {
+    max-width: 320px;
+    flex: 1 1 calc(33.33% - 32px);
   }
 `;
 

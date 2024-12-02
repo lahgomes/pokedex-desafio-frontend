@@ -5,19 +5,10 @@ import {
   useEffect,
   useState,
 } from 'react';
-
-interface Pokemon {
-  name: string;
-  id: number;
-  sprites: {
-    front_default: string;
-  };
-  types: { type: { name: string } }[];
-}
+import { Pokemon } from '../types';
 
 interface ServiceContextProps {
   pokemons: Pokemon[];
-  favoritePokemons: Pokemon[];
   filteredPokemons: null | Pokemon[];
   loading: boolean;
   favoriteIds: number[];
@@ -30,7 +21,6 @@ interface ServiceContextProps {
 
 export const ServiceContext = createContext<ServiceContextProps>({
   pokemons: [],
-  favoritePokemons: [],
   filteredPokemons: null,
   loading: true,
   favoriteIds: [],
@@ -47,7 +37,6 @@ const useService = () => useContext(ServiceContext);
 
 const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [favoritePokemons, setFavoritePokemons] = useState<Pokemon[]>([]);
   const [filteredPokemons, setFilteredPokemons] = useState<null | Pokemon[]>(
     null
   );
@@ -85,34 +74,6 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
     const storedFavorites = localStorage.getItem('favoritePokemons');
     if (storedFavorites) {
       setFavoriteIds(JSON.parse(storedFavorites));
-    }
-  }, []);
-
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem('favoritePokemons');
-    const favoritePokemons = storedFavorites ? JSON.parse(storedFavorites) : [];
-
-    if (favoritePokemons.length > 0) {
-      const fetchPokemons = async () => {
-        try {
-          const detailedPokemons = await Promise.all(
-            favoritePokemons.map(async (id: number) => {
-              const response = await fetch(
-                `https://pokeapi.co/api/v2/pokemon/${id}`
-              );
-              return response.json();
-            })
-          );
-
-          setFavoritePokemons(detailedPokemons);
-        } catch (error) {
-          console.error('Erro ao buscar os Pokémons:', error);
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      fetchPokemons();
     }
   }, []);
 
@@ -169,7 +130,6 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
     <ServiceContext.Provider
       value={{
         pokemons,
-        favoritePokemons,
         filteredPokemons,
         loading,
         favoriteIds,

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  grid-column: span 2;
+  flex: 1 1 calc(100% - 32px);
   border-radius: 12px;
   width: 220px;
   height: 160px;
@@ -15,6 +15,11 @@ const Wrapper = styled.div`
   );
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
+
+  @media (min-width: 768px) {
+    max-width: 320px;
+    flex: 1 1 calc(33.33% - 32px);
+  }
 
   @keyframes placeholderShimmer {
     0% {

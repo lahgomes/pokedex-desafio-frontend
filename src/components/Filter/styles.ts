@@ -7,9 +7,13 @@ export const FilterSelect = styled.select`
   border-width: 1px;
   border-radius: 100px;
   color: #919191;
-  width: 220px;
+  width: 100%;
 
   option {
     text-transform: capitalize;
+  }
+
+  @media (min-width: 768px) {
+    width: 300px;
   }
 `;
