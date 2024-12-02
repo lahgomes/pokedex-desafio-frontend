@@ -6,5 +6,9 @@ export const SearchContainer = styled.div`
 `;
 export const InputSearch = styled.input`
   padding: 8px 16px;
+  width: 560px;
   outline: none;
+  border-color: #919191;
+  border-width: 1px;
+  border-radius: 100px;
 `;

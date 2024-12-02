@@ -24,9 +24,15 @@ export default function PokemonCard({
   return (
     <S.Card bgcolor={COLORS[pokemonType]}>
       {children}
-      <S.PokemonName onClick={() => onOpenModal(pokemon)}>
-        {pokemon.name}
-      </S.PokemonName>
+      <S.Container>
+        <S.PokemonName onClick={() => onOpenModal(pokemon)}>
+          {pokemon.name}
+        </S.PokemonName>
+        <S.Image
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+          alt={pokemon.name}
+        />
+      </S.Container>
     </S.Card>
   );
 }

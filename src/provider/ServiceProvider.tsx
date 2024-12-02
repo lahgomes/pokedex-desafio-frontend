@@ -123,7 +123,6 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   }, [term]);
 
   const onFavoritePokemon = (id: number) => {
-    // Busca os favoritos salvos no localStorage
     const storedFavorites = localStorage.getItem('favoritePokemons');
     const favoritePokemons = storedFavorites ? JSON.parse(storedFavorites) : [];
 

@@ -12,8 +12,12 @@ export const Card = styled.div<CardProps>`
   background-color: ${({ bgcolor }) => bgcolor};
   position: relative;
   transition: all 0.3s ease;
-  height: 160px;
+  height: 140px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -33,4 +37,11 @@ export const Image = styled.img`
   position: absolute;
   top: -30px;
   right: 10px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 `;

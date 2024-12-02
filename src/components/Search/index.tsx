@@ -4,11 +4,12 @@ import * as S from './styles';
 
 export default function Search() {
   const { term, onChangeTerm, onFilterPokemon } = useService();
+
   return (
     <S.SearchContainer>
       <S.InputSearch
         type="search"
-        placeholder="Pesquisar..."
+        placeholder="Busque seu pokémon..."
         value={term}
         onChange={onChangeTerm}
       />
