@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PokemonList from '../../components/PokemonList';
+import Filter from '../../components/Filter';
 
 const Wrapper = styled.div`
   width: 100%;

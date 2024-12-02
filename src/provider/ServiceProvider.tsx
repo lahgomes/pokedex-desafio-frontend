@@ -18,25 +18,27 @@ interface Pokemon {
 interface ServiceContextProps {
   pokemons: Pokemon[];
   favoritePokemons: Pokemon[];
-  filteredPokemons: undefined | Pokemon;
+  filteredPokemons: Pokemon[];
   loading: boolean;
   favoriteIds: number[];
   term: string;
   onFavoritePokemon: (id: number) => void;
   onChangeTerm: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFilterPokemon: () => void;
+  onFilterPokemonByType: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export const ServiceContext = createContext<ServiceContextProps>({
   pokemons: [],
   favoritePokemons: [],
-  filteredPokemons: undefined,
+  filteredPokemons: [],
   loading: true,
   favoriteIds: [],
   term: '',
   onFavoritePokemon: () => {},
   onChangeTerm: () => {},
   onFilterPokemon: () => {},
+  onFilterPokemonByType: () => {},
 });
 
 ServiceContext.displayName = 'ServiceContext';
@@ -46,9 +48,7 @@ const useService = () => useContext(ServiceContext);
 const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [favoritePokemons, setFavoritePokemons] = useState<Pokemon[]>([]);
-  const [filteredPokemons, setFilteredPokemons] = useState<undefined | Pokemon>(
-    undefined
-  );
+  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>([]);
   const [term, searchTerm] = useState('');
   const [loading, setLoading] = useState<boolean>(true);
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
@@ -112,7 +112,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
 
   useEffect(() => {
     if (!Boolean(term)) {
-      setFilteredPokemons(undefined);
+      setFilteredPokemons([]);
     }
   }, [term]);
 
@@ -134,8 +134,18 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
 
   const onChangeTerm = (event: React.ChangeEvent<HTMLInputElement>) =>
     searchTerm(event.target.value);
+
   const onFilterPokemon = () => {
-    const filteredPokemon = pokemons.find(({ name }) => name === term);
+    const filteredPokemon = pokemons.filter(({ name }) => name === term);
+    setFilteredPokemons(filteredPokemon);
+  };
+
+  const onFilterPokemonByType = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const filteredPokemon = pokemons.filter(({ types }) => {
+      return types.some(({ type }) => type.name === event.target.value);
+    });
     setFilteredPokemons(filteredPokemon);
   };
 
@@ -151,6 +161,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
         onFavoritePokemon,
         onChangeTerm,
         onFilterPokemon,
+        onFilterPokemonByType,
       }}
     >
       {children}

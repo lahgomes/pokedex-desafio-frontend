@@ -11,7 +11,12 @@ export const Card = styled.div<CardProps>`
   text-align: center;
   background-color: ${({ bgcolor }) => bgcolor};
   position: relative;
+  transition: all 0.3s ease;
   height: 160px;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const PokemonName = styled.h3`
