@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import * as S from './styles';
+import Search from '../Search';
 import { MdFavoriteBorder } from 'react-icons/md';
+import * as S from './styles';
 
 export default function Header() {
   return (
@@ -9,7 +10,7 @@ export default function Header() {
         <Link to="/">
           <img src="/logo.svg" alt="Home pokedex" width="80" height="60" />
         </Link>
-        Barra de Busca
+        <Search />
         <Link to="/favoritos">
           Meus Favoritos
           <MdFavoriteBorder />

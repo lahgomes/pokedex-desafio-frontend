@@ -23,18 +23,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     border: none;
   }
-
-  .poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
 `;
 
 export default GlobalStyle;

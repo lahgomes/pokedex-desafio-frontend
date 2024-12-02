@@ -7,12 +7,36 @@ import { useService } from '../../provider/ServiceProvider';
 import * as S from './styles';
 
 export default function PokemonList() {
-  const { pokemons, loading, favoriteIds, onFavoritePokemon } = useService();
+  const {
+    pokemons,
+    filteredPokemons,
+    loading,
+    favoriteIds,
+    onFavoritePokemon,
+  } = useService();
 
   if (loading) {
     return (
       <Grid>
         <Skeleton />
+      </Grid>
+    );
+  }
+
+  if (filteredPokemons) {
+    return (
+      <Grid>
+        <PokemonCard
+          key={filteredPokemons.id}
+          pokemonType={filteredPokemons.types[0].type.name}
+          pokemon={filteredPokemons}
+        >
+          <FavoriteButton
+            favoriteIds={favoriteIds}
+            onFavoritePokemon={onFavoritePokemon}
+            pokemonId={filteredPokemons.id}
+          />
+        </PokemonCard>
       </Grid>
     );
   }

@@ -14,10 +14,11 @@ export const Card = styled.div<CardProps>`
   height: 160px;
 `;
 
-export const PokemonName = styled.h2`
+export const PokemonName = styled.h3`
   cursor: pointer;
   color: #ffff;
   font-size: 24px;
+  font-weight: 300;
 `;
 
 export const Image = styled.img`
