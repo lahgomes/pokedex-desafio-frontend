@@ -7,12 +7,7 @@ export default function Header() {
     <S.HeaderContainer>
       <S.Nav>
         <Link to="/">
-          <img
-            src="/public/logo.svg"
-            alt="Home pokedex"
-            width="80"
-            height="60"
-          />
+          <img src="/logo.svg" alt="Home pokedex" width="80" height="60" />
         </Link>
         Barra de Busca
         <Link to="/favoritos">

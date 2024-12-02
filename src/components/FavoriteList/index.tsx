@@ -3,15 +3,7 @@ import styled from 'styled-components';
 import Grid from '../Grid';
 import PokemonCard from '../PokemonCard';
 import Skeleton from '../Skeleton';
-
-interface Pokemon {
-  name: string;
-  id: number;
-  sprites: {
-    front_default: string;
-  };
-  types: { type: { name: string } }[];
-}
+import { useService } from '../../provider/ServiceProvider';
 
 const Message = styled.div`
   display: flex;
@@ -23,38 +15,9 @@ const Message = styled.div`
 `;
 
 export default function FavoriteList() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { favoritePokemons, loading } = useService();
 
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem('favoritePokemons');
-    const favoritePokemons = storedFavorites ? JSON.parse(storedFavorites) : [];
-
-    if (favoritePokemons.length > 0) {
-      const fetchPokemons = async () => {
-        try {
-          const detailedPokemons = await Promise.all(
-            favoritePokemons.map(async (id: number) => {
-              const response = await fetch(
-                `https://pokeapi.co/api/v2/pokemon/${id}`
-              );
-              return response.json();
-            })
-          );
-
-          setPokemons(detailedPokemons);
-        } catch (error) {
-          console.error('Erro ao buscar os Pokémons:', error);
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      fetchPokemons();
-    }
-  }, []);
-
-  if (pokemons.length === 0) {
+  if (favoritePokemons.length === 0) {
     return <Message>Nenhum pokémon favorito encontrado</Message>;
   }
 
@@ -68,7 +31,7 @@ export default function FavoriteList() {
 
   return (
     <Grid>
-      {pokemons.map((pokemon) => {
+      {favoritePokemons.map((pokemon) => {
         const pokemonType = pokemon.types[0].type.name;
 
         return (
