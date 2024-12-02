@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Grid from '../Grid';
 import PokemonCard from '../PokemonCard';
 import FavoriteButton from '../FavoriteButton';
+import Skeleton from '../Skeleton';
 
 import * as S from './styles';
 
@@ -62,7 +63,11 @@ export default function PokemonList() {
   };
 
   if (loading) {
-    return <S.Loading>Carregando...</S.Loading>;
+    return (
+      <Grid>
+        <Skeleton />
+      </Grid>
+    );
   }
 
   return (

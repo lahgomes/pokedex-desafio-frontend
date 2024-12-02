@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import * as S from './styles';
+import styled from 'styled-components';
 import Grid from '../Grid';
 import PokemonCard from '../PokemonCard';
+import Skeleton from '../Skeleton';
 
 interface Pokemon {
   name: string;
@@ -11,6 +12,15 @@ interface Pokemon {
   };
   types: { type: { name: string } }[];
 }
+
+const Message = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  font-size: 24px;
+`;
 
 export default function FavoriteList() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -45,11 +55,15 @@ export default function FavoriteList() {
   }, []);
 
   if (pokemons.length === 0) {
-    return <S.Message>Nenhum pokémon favorito encontrado</S.Message>;
+    return <Message>Nenhum pokémon favorito encontrado</Message>;
   }
 
   if (loading) {
-    return <S.Loading>Carregando...</S.Loading>;
+    return (
+      <Grid>
+        <Skeleton />
+      </Grid>
+    );
   }
 
   return (
