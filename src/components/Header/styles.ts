@@ -30,5 +30,11 @@ export const Nav = styled.nav`
     @media (max-width: 768px) {
       text-indent: -9999px;
     }
+
+    & > svg {
+      &:hover {
+        color: #ff0000;
+      }
+    }
   }
 `;

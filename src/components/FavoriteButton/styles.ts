@@ -14,7 +14,7 @@ export const FavoriteButton = styled.button<FavoriteButtonProps>`
     color: ${({ isfavorite }) => (isfavorite ? '#ff0000' : '#ffff')};
 
     &:hover {
-      color: '#ff0000';
+      color: #ff0000;
     }
   }
 `;

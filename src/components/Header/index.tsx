@@ -13,7 +13,7 @@ export default function Header() {
         <Search />
         <Link to="/favoritos">
           Favoritos
-          <MdFavorite />
+          <MdFavorite size={24} />
         </Link>
       </S.Nav>
     </S.HeaderContainer>

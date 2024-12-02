@@ -3,17 +3,17 @@ import { useService } from '../../provider/ServiceProvider';
 import * as S from './styles';
 
 export default function Search() {
-  const { term, onChangeTerm, onFilterPokemon } = useService();
+  const { term, onChangeTerm, onSearchFilterPokemon } = useService();
 
   return (
     <S.SearchContainer>
       <S.InputSearch
         type="search"
-        placeholder="Busque o nome do seu pokémon..."
+        placeholder="Busque o nome do pokémon..."
         value={term}
         onChange={onChangeTerm}
       />
-      <button onClick={onFilterPokemon}>
+      <button onClick={onSearchFilterPokemon}>
         <MdSearch size={24} />
       </button>
     </S.SearchContainer>

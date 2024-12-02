@@ -15,7 +15,7 @@ interface ServiceContextProps {
   term: string;
   onFavoritePokemon: (id: number) => void;
   onChangeTerm: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onFilterPokemon: () => void;
+  onSearchFilterPokemon: () => void;
   onFilterPokemonByType: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -27,7 +27,7 @@ export const ServiceContext = createContext<ServiceContextProps>({
   term: '',
   onFavoritePokemon: () => {},
   onChangeTerm: () => {},
-  onFilterPokemon: () => {},
+  onSearchFilterPokemon: () => {},
   onFilterPokemonByType: () => {},
 });
 
@@ -104,7 +104,11 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   const onChangeTerm = (event: React.ChangeEvent<HTMLInputElement>) =>
     searchTerm(event.target.value);
 
-  const onFilterPokemon = () => {
+  const onSearchFilterPokemon = () => {
+    if (!term) {
+      return;
+    }
+
     const filteredPokemon = pokemons.filter(({ name }) => name === term);
     setFilteredPokemons(filteredPokemon);
   };
@@ -136,7 +140,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
         term,
         onFavoritePokemon,
         onChangeTerm,
-        onFilterPokemon,
+        onSearchFilterPokemon,
         onFilterPokemonByType,
       }}
     >
