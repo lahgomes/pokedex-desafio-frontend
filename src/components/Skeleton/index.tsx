@@ -34,5 +34,5 @@ const Wrapper = styled.div`
 export default function Skeleton() {
   return Array(24)
     .fill(0)
-    .map((_, index) => <Wrapper key={index} />);
+    .map((_, index) => <Wrapper key={index} data-testid="skeleton" />);
 }
