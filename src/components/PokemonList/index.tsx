@@ -48,7 +48,7 @@ export default function PokemonList() {
 
     return (
       <Grid>
-        <h1>Nenhum pokémon encontrado</h1>
+        <h1>Nenhum pokémon encontrado :(</h1>
       </Grid>
     );
   }

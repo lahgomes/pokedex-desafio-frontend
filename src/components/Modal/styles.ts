@@ -74,23 +74,16 @@ export const PokemonName = styled.p`
   color: #333;
   margin: 0;
   text-align: center;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  text-transform: capitalize;
 `;
 
 export const PokemonID = styled.span`
   font-size: 0.9rem;
   font-weight: 400;
   color: #888;
-`;
-
-export const TypeBadge = styled.li<{ typeColor: string }>`
-  font-size: 0.875rem;
-  color: #fff;
-  background-color: ${(props) => props.typeColor};
-  border-radius: 12px;
-  padding: 6px 12px;
-  text-transform: capitalize;
-  font-weight: 600;
-  display: inline-block;
 `;
 
 export const InfoSection = styled.div`
@@ -119,14 +112,17 @@ export const InfoSection = styled.div`
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-
-      li {
-        font-size: 0.875rem;
-        color: #444;
-        background: #f0f0f0;
-        border-radius: 4px;
-        padding: 6px 10px;
-      }
     }
   }
+`;
+
+export const Badge = styled.li<{ bgcolor: string }>`
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: ${({ bgcolor }) => bgcolor};
+  border-radius: 12px;
+  padding: 6px 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+  display: inline-block;
 `;

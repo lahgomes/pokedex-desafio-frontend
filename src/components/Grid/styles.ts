@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Grid = styled.section`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   max-width: 1024px;
   margin: 0 auto;
-  gap: 40px 15px;
+  gap: 32px;
   padding: 24px 0;
 `;

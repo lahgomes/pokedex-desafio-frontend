@@ -157,7 +157,9 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
     }
 
     const filteredPokemon = pokemons.filter(({ types }) => {
-      return types.some(({ type }) => type.name === event.target.value);
+      return types.some(
+        ({ type }) => type.name === event.target.value.toLowerCase()
+      );
     });
 
     setFilteredPokemons(filteredPokemon);

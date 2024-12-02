@@ -1,4 +1,4 @@
-import { COLORS } from '../../utils';
+import { COLORS, getPokemonAvatar } from '../../utils';
 import { MdClose } from 'react-icons/md';
 import { useModal } from '../../provider/ModalProvider';
 import * as S from './styles';
@@ -18,12 +18,12 @@ export default function Modal() {
         </S.ModalHeader>
         <S.ModalBody>
           <S.PokemonImage
-            src={clickedPokemon.sprites.front_default}
+            src={getPokemonAvatar(clickedPokemon.id)}
             alt={clickedPokemon.name}
           />
           <S.PokemonName>
-            {clickedPokemon.name}{' '}
             <S.PokemonID>#{clickedPokemon.id}</S.PokemonID>
+            {clickedPokemon.name}
           </S.PokemonName>
           <S.InfoSection>
             <div>
@@ -32,9 +32,9 @@ export default function Modal() {
                 {clickedPokemon.types.map((type) => {
                   const typeColor = COLORS[type.type.name] || '#ccc';
                   return (
-                    <S.TypeBadge key={type.type.name} typeColor={typeColor}>
+                    <S.Badge key={type.type.name} bgcolor={typeColor}>
                       {type.type.name}
-                    </S.TypeBadge>
+                    </S.Badge>
                   );
                 })}
               </ul>
@@ -43,7 +43,9 @@ export default function Modal() {
               <h3>Habilidades</h3>
               <ul>
                 {clickedPokemon.abilities.map((ability) => (
-                  <li key={ability.slot}>{ability.ability.name}</li>
+                  <S.Badge bgcolor="#ccc" key={ability.slot}>
+                    {ability.ability.name}
+                  </S.Badge>
                 ))}
               </ul>
             </div>

@@ -5,7 +5,7 @@ interface CardProps {
 }
 
 export const Card = styled.div<CardProps>`
-  grid-column: span 1;
+  flex: 1 1 calc(33.33% - 32px);
   border-radius: 12px;
   padding: 16px;
   text-align: center;
@@ -18,6 +18,7 @@ export const Card = styled.div<CardProps>`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  max-width: 320px;
 
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -29,6 +30,7 @@ export const PokemonName = styled.h3`
   color: #ffff;
   font-size: 24px;
   font-weight: 300;
+  text-transform: capitalize;
 `;
 
 export const Image = styled.img`

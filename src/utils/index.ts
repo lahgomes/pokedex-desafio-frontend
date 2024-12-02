@@ -20,22 +20,27 @@ export const COLORS: Record<string, string> = {
 };
 
 export const POKEMON_TYPES = [
-  'bug',
-  'dark',
-  'dragon',
-  'electric',
-  'fairy',
-  'fighting',
-  'fire',
-  'flying',
-  'ghost',
-  'grass',
-  'ground',
-  'ice',
-  'normal',
-  'poison',
-  'psychic',
-  'rock',
-  'steel',
-  'water',
+  'Bug',
+  'Dark',
+  'Dragon',
+  'Electric',
+  'Fairy',
+  'Fighting',
+  'Fire',
+  'Flying',
+  'Ghost',
+  'Grass',
+  'Ground',
+  'Ice',
+  'Normal',
+  'Poison',
+  'Psychic',
+  'Rock',
+  'Steel',
+  'Water',
 ];
+
+const POKEMON_AVATAR_REPO_URL =
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork';
+export const getPokemonAvatar = (id: number) =>
+  `${POKEMON_AVATAR_REPO_URL}/${id}.png`;

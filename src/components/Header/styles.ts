@@ -19,4 +19,10 @@ export const Nav = styled.nav`
   align-items: center;
   color: #919191;
   font-weight: bold;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 `;

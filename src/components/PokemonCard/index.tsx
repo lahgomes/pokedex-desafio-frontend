@@ -1,4 +1,4 @@
-import { COLORS } from '../../utils';
+import { COLORS, getPokemonAvatar } from '../../utils';
 import { useModal } from '../../provider/ModalProvider';
 import * as S from './styles';
 
@@ -22,16 +22,11 @@ export default function PokemonCard({
   const { onOpenModal } = useModal();
 
   return (
-    <S.Card bgcolor={COLORS[pokemonType]}>
+    <S.Card bgcolor={COLORS[pokemonType]} onClick={() => onOpenModal(pokemon)}>
       {children}
       <S.Container>
-        <S.PokemonName onClick={() => onOpenModal(pokemon)}>
-          {pokemon.name}
-        </S.PokemonName>
-        <S.Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-          alt={pokemon.name}
-        />
+        <S.PokemonName>{pokemon.name}</S.PokemonName>
+        <S.Image src={getPokemonAvatar(pokemon.id)} alt={pokemon.name} />
       </S.Container>
     </S.Card>
   );
