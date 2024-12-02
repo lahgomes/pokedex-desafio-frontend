@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useService } from '../../provider/ServiceProvider';
 import Grid from '../Grid';
 import PokemonCard from '../PokemonCard';
 import Skeleton from '../Skeleton';
-import { useService } from '../../provider/ServiceProvider';
+import styled from 'styled-components';
 
 const Message = styled.div`
   display: flex;

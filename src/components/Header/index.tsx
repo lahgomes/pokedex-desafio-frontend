@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Search from '../Search';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavorite } from 'react-icons/md';
 import * as S from './styles';
+import Search from '../Search';
 
 export default function Header() {
   return (
@@ -12,8 +12,8 @@ export default function Header() {
         </Link>
         <Search />
         <Link to="/favoritos">
-          Meus Favoritos
-          <MdFavoriteBorder />
+          Favoritos
+          <MdFavorite />
         </Link>
       </S.Nav>
     </S.HeaderContainer>

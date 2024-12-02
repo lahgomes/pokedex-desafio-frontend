@@ -5,7 +5,7 @@ interface CardProps {
 }
 
 export const Card = styled.div<CardProps>`
-  grid-column: span 2;
+  grid-column: span 1;
   border-radius: 12px;
   padding: 16px;
   text-align: center;
@@ -13,6 +13,7 @@ export const Card = styled.div<CardProps>`
   position: relative;
   transition: all 0.3s ease;
   height: 160px;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);

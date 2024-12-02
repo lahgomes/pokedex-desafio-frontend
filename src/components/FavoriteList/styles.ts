@@ -1,13 +1,3 @@
-import styled from 'styled-components';
-
-export const Loading = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-`;
-
 /* export const List = styled.section`
   width: 100%;
   display: grid;
@@ -26,12 +16,3 @@ export const Loading = styled.div`
   background-color: ${(props) => props.bgColor};
   position: relative;
 `; */
-
-export const Message = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  font-size: 24px;
-`;

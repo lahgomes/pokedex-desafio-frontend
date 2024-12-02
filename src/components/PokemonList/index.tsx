@@ -1,10 +1,8 @@
+import { useService } from '../../provider/ServiceProvider';
+import FavoriteButton from '../FavoriteButton';
 import Grid from '../Grid';
 import PokemonCard from '../PokemonCard';
-import FavoriteButton from '../FavoriteButton';
 import Skeleton from '../Skeleton';
-import { useService } from '../../provider/ServiceProvider';
-
-import * as S from './styles';
 
 export default function PokemonList() {
   const {
@@ -24,50 +22,56 @@ export default function PokemonList() {
   }
 
   if (filteredPokemons) {
-    return (
-      <Grid>
-        <PokemonCard
-          key={filteredPokemons.id}
-          pokemonType={filteredPokemons.types[0].type.name}
-          pokemon={filteredPokemons}
-        >
-          <FavoriteButton
-            favoriteIds={favoriteIds}
-            onFavoritePokemon={onFavoritePokemon}
-            pokemonId={filteredPokemons.id}
-          />
-        </PokemonCard>
-      </Grid>
-    );
-  }
+    if (filteredPokemons.length > 0) {
+      return (
+        <Grid>
+          {filteredPokemons.map((pokemon) => {
+            const pokemonType = pokemon.types[0].type.name;
 
-  return (
-    <S.Layout>
-      <S.Title>Encontre todos os pokémons por aqui</S.Title>
-      <Grid>
-        {pokemons.map((pokemon) => {
-          const pokemonType = pokemon.types[0].type.name;
-          return (
-            <PokemonCard
-              key={pokemon.id}
-              pokemonType={pokemonType}
-              pokemon={pokemon}
-            >
-              <S.Container>
+            return (
+              <PokemonCard
+                key={pokemon.id}
+                pokemonType={pokemonType}
+                pokemon={pokemon}
+              >
                 <FavoriteButton
                   favoriteIds={favoriteIds}
                   onFavoritePokemon={onFavoritePokemon}
                   pokemonId={pokemon.id}
                 />
-                <S.Image
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                  alt={pokemon.name}
-                />
-              </S.Container>
-            </PokemonCard>
-          );
-        })}
+              </PokemonCard>
+            );
+          })}
+        </Grid>
+      );
+    }
+
+    return (
+      <Grid>
+        <h1>Nenhum pokémon encontrado</h1>
       </Grid>
-    </S.Layout>
+    );
+  }
+
+  return (
+    <Grid>
+      {pokemons.map((pokemon) => {
+        const pokemonType = pokemon.types[0].type.name;
+
+        return (
+          <PokemonCard
+            key={pokemon.id}
+            pokemonType={pokemonType}
+            pokemon={pokemon}
+          >
+            <FavoriteButton
+              favoriteIds={favoriteIds}
+              onFavoritePokemon={onFavoritePokemon}
+              pokemonId={pokemon.id}
+            />
+          </PokemonCard>
+        );
+      })}
+    </Grid>
   );
 }

@@ -4,9 +4,8 @@ import * as S from './styles';
 
 export default function Modal() {
   const { isOpen, clickedPokemon, onCloseModal } = useModal();
-  console.log('🚀 ~ Modal ~ clickedPokemon:', clickedPokemon);
 
-  if (!isOpen) return null;
+  if (!isOpen || !clickedPokemon) return null;
 
   return (
     <S.ModalRoot open={isOpen}>
@@ -16,10 +15,31 @@ export default function Modal() {
             <MdClose />
           </button>
         </S.ModalHeader>
-        <S.ModalTitle>
-          <h3>Título do Modal</h3>
-        </S.ModalTitle>
-        <div>Detalhes do pokemon clicado aqui</div>
+        <S.ModalBody>
+          <img
+            src={clickedPokemon.sprites.front_default}
+            alt={clickedPokemon.name}
+          />
+          <p>
+            #{clickedPokemon.id} {clickedPokemon.name}
+          </p>
+          <div>
+            Tipo:
+            <ul>
+              {clickedPokemon.types.map((type) => (
+                <li key={type.type.name}>{type.type.name}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            Habilidades:
+            <ul>
+              {clickedPokemon.abilities.map((ability) => (
+                <li key={ability.slot}>{ability.ability.name}</li>
+              ))}
+            </ul>
+          </div>
+        </S.ModalBody>
       </S.ModalContent>
     </S.ModalRoot>
   );

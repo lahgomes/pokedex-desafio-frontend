@@ -15,7 +15,10 @@ export default function FavoriteButton({
   return (
     <S.FavoriteButton
       title="Salvar como favorito"
-      onClick={() => onFavoritePokemon(pokemonId)}
+      onClick={(e) => {
+        e.stopPropagation();
+        onFavoritePokemon(pokemonId);
+      }}
       isfavorite={favoriteIds.includes(pokemonId)}
     >
       <MdFavoriteBorder />

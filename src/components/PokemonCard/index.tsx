@@ -22,11 +22,11 @@ export default function PokemonCard({
   const { onOpenModal } = useModal();
 
   return (
-    <S.Card bgcolor={COLORS[pokemonType] || '#777'}>
+    <S.Card bgcolor={COLORS[pokemonType]}>
+      {children}
       <S.PokemonName onClick={() => onOpenModal(pokemon)}>
         {pokemon.name}
       </S.PokemonName>
-      {children}
     </S.Card>
   );
 }

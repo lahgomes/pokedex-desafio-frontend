@@ -35,9 +35,14 @@ export const ModalHeader = styled.div`
   justify-content: flex-end;
   width: 100%;
   margin-bottom: 24px;
+
+  svg {
+    height: 24px;
+    width: 24px;
+  }
 `;
 
-export const ModalTitle = styled.div`
+export const ModalBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;

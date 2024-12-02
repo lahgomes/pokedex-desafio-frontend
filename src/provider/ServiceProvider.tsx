@@ -2,8 +2,8 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useState,
   useEffect,
+  useState,
 } from 'react';
 
 interface Pokemon {
@@ -18,7 +18,7 @@ interface Pokemon {
 interface ServiceContextProps {
   pokemons: Pokemon[];
   favoritePokemons: Pokemon[];
-  filteredPokemons: Pokemon[];
+  filteredPokemons: null | Pokemon[];
   loading: boolean;
   favoriteIds: number[];
   term: string;
@@ -31,7 +31,7 @@ interface ServiceContextProps {
 export const ServiceContext = createContext<ServiceContextProps>({
   pokemons: [],
   favoritePokemons: [],
-  filteredPokemons: [],
+  filteredPokemons: null,
   loading: true,
   favoriteIds: [],
   term: '',
@@ -48,7 +48,9 @@ const useService = () => useContext(ServiceContext);
 const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [favoritePokemons, setFavoritePokemons] = useState<Pokemon[]>([]);
-  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>([]);
+  const [filteredPokemons, setFilteredPokemons] = useState<null | Pokemon[]>(
+    null
+  );
   const [term, searchTerm] = useState('');
   const [loading, setLoading] = useState<boolean>(true);
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
@@ -67,6 +69,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
             return res.json();
           })
         );
+
         setPokemons(detailedPokemons);
       } catch (error) {
         console.error('Erro ao buscar os Pokémons:', error);
@@ -88,6 +91,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   useEffect(() => {
     const storedFavorites = localStorage.getItem('favoritePokemons');
     const favoritePokemons = storedFavorites ? JSON.parse(storedFavorites) : [];
+
     if (favoritePokemons.length > 0) {
       const fetchPokemons = async () => {
         try {
@@ -99,6 +103,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
               return response.json();
             })
           );
+
           setFavoritePokemons(detailedPokemons);
         } catch (error) {
           console.error('Erro ao buscar os Pokémons:', error);
@@ -106,19 +111,22 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
           setLoading(false);
         }
       };
+
       fetchPokemons();
     }
   }, []);
 
   useEffect(() => {
-    if (!Boolean(term)) {
-      setFilteredPokemons([]);
+    if (!term) {
+      setFilteredPokemons(null);
     }
   }, [term]);
 
   const onFavoritePokemon = (id: number) => {
+    // Busca os favoritos salvos no localStorage
     const storedFavorites = localStorage.getItem('favoritePokemons');
     const favoritePokemons = storedFavorites ? JSON.parse(storedFavorites) : [];
+
     let updatedFavorites;
     if (favoritePokemons.includes(id)) {
       updatedFavorites = favoritePokemons.filter(
@@ -129,6 +137,7 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
     }
 
     localStorage.setItem('favoritePokemons', JSON.stringify(updatedFavorites));
+
     setFavoriteIds(updatedFavorites);
   };
 
@@ -143,9 +152,15 @@ const ServiceProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   const onFilterPokemonByType = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
+    if (event.target.value === 'all') {
+      setFilteredPokemons(pokemons);
+      return;
+    }
+
     const filteredPokemon = pokemons.filter(({ types }) => {
       return types.some(({ type }) => type.name === event.target.value);
     });
+
     setFilteredPokemons(filteredPokemon);
   };
 
