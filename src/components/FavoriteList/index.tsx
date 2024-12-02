@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as S from './styles';
+import Grid from '../Grid';
+import PokemonCard from '../PokemonCard';
 
 interface Pokemon {
   name: string;
@@ -9,23 +11,6 @@ interface Pokemon {
   };
   types: { type: { name: string } }[];
 }
-
-const COLORS: Record<string, string> = {
-  fire: '#FDDFDF',
-  grass: '#DEFDE0',
-  electric: '#FCF7DE',
-  water: '#DEF3FD',
-  ground: '#f4e7da',
-  rock: '#d5d5d4',
-  fairy: '#fceaff',
-  poison: '#98d7a5',
-  bug: '#f8d5a3',
-  dragon: '#97b3e6',
-  psychic: '#eaeda1',
-  flying: '#F5F5F5',
-  fighting: '#E6E0D4',
-  normal: '#F5F5F5',
-};
 
 export default function FavoriteList() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -68,17 +53,18 @@ export default function FavoriteList() {
   }
 
   return (
-    <S.List>
+    <Grid>
       {pokemons.map((pokemon) => {
         const pokemonType = pokemon.types[0].type.name;
 
         return (
-          <S.Card key={pokemon.id} bgColor={COLORS[pokemonType]}>
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-            <h2>{pokemon.name}</h2>
-          </S.Card>
+          <PokemonCard
+            key={pokemon.id}
+            pokemonType={pokemonType}
+            pokemon={pokemon}
+          />
         );
       })}
-    </S.List>
+    </Grid>
   );
 }

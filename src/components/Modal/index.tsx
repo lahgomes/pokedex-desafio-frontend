@@ -3,7 +3,8 @@ import { useModal } from '../../provider/ModalProvider';
 import * as S from './styles';
 
 export default function Modal() {
-  const { isOpen, onClickModal } = useModal();
+  const { isOpen, clickedPokemon, onCloseModal } = useModal();
+  console.log('🚀 ~ Modal ~ clickedPokemon:', clickedPokemon);
 
   if (!isOpen) return null;
 
@@ -11,7 +12,7 @@ export default function Modal() {
     <S.ModalRoot open={isOpen}>
       <S.ModalContent>
         <S.ModalHeader>
-          <button onClick={onClickModal}>
+          <button onClick={onCloseModal}>
             <MdClose />
           </button>
         </S.ModalHeader>

@@ -4,10 +4,6 @@ interface CardProps {
   bgcolor: string;
 }
 
-interface FavoriteButtonProps {
-  isfavorite?: boolean;
-}
-
 export const Loading = styled.div`
   display: flex;
   justify-content: center;
@@ -26,16 +22,6 @@ export const Layout = styled.section`
   max-width: 1024px;
   margin: 0 auto;
   margin-top: 48px;
-`;
-
-export const List = styled.section`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1024px;
-  margin: 0 auto;
-  gap: 40px 15px;
-  padding: 24px 0;
 `;
 
 export const Card = styled.div<CardProps>`
@@ -67,19 +53,4 @@ export const Image = styled.img`
 export const Name = styled.h2`
   color: #ffff;
   font-size: 24px;
-`;
-
-export const FavoriteButton = styled.button<FavoriteButtonProps>`
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  & > svg {
-    font-size: 24px;
-    color: ${({ isfavorite }) => (isfavorite ? '#ff0000' : '#ffff')};
-
-    &:hover {
-      color: red;
-    }
-  }
 `;
