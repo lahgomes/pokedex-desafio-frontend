@@ -3,7 +3,7 @@
 
 Olá! Esse projeto é um teste para a vaga de Front-end Júnior na empresa [Ília](https://ilia.digital/)
 
-Utilizando a API do [PokeAPI](https://pokeapi.co/) criei uma aplicação conhecida como Pokédex, que permite o usúario visualizar informações sobre um Pokémon, como seu tipo e suas habilidades. 
+Utilizando a API do [PokeAPI](https://pokeapi.co/) criei uma aplicação conhecida como Pokédex, que permite listar Pokémons e visualizar informações sobre mais detalhadas sobre ele, como seu tipo e suas habilidades. 
 
 ## Descrição
 
