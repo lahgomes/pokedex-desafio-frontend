@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import PokemonList from './index';
+import PokemonList from '.';
 import { useService } from '../../provider/ServiceProvider';
 
 jest.mock('../../provider/ServiceProvider', () => ({
@@ -28,7 +28,13 @@ describe('PokemonList', () => {
 
     render(<PokemonList />);
 
-    expect(screen.getByTestId('skeleton')).toBeInTheDocument();
+    const skeletons = screen.getAllByTestId('skeleton');
+
+    expect(skeletons.length).toBeGreaterThan(0);
+
+    skeletons.forEach((skeleton) => {
+      expect(skeleton).toBeInTheDocument();
+    });
   });
 
   test('should display filtered Pokémon when available', () => {
