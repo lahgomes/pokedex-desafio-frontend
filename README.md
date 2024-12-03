@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# Desafio Pokédex 🎮
+## React + Typescript + Vite + Styled-Components + Jest + React Testing Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Olá! Esse projeto é um teste para a vaga de Front-end Júnior na empresa [Ília](https://ilia.digital/)
 
-Currently, two official plugins are available:
+Utilizando a API do [PokeAPI](https://pokeapi.co/) criei uma aplicação conhecida como Pokédex, que permite o usúario visualizar informações sobre um Pokémon, como seu tipo e suas habilidades. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descrição
 
-## Expanding the ESLint configuration
+Essa Pokédex permite que os usuários:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [ ] Visualizem informações detalhadas sobre Pokémons, como Tipo e Habilidades;
+- [ ] Salvem Pokémons favoritos, consultando uma listagem separada;
+- [ ] Filtre a listagem por tipo de Pokémon;
+- [ ] Busquem Pokémons pelo nome, utilizando uma barra de busca;
 
-- Configure the top-level `parserOptions` property like this:
+## Índice
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [Como executar o projeto](#como-executar-o-projeto)
+- [Stacks utilizadas](#stacks-utilizadas)
+- [Testes Unitários](#testes)
+- [Desafios enfrentados](#desafios-enfrentados)
+- [Acesse o site](#acesse-o-site)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Como executar o projeto: 
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [ ] Clone o projeto;
+- [ ] Instale as dependências com os comandos: ``` npm install ou yarn install ```;
+- [ ] Rodar o projeto localmente através do comando ``` npm run dev ou yarn dev ```.
+- [ ] Executar os testes unitários através do comando ``` npm test  ```
+
+## Stacks utilizadas:
+
+   - [React JS](https://reactjs.org/docs/getting-started.html)
+   - [Vite](https://vite.dev/guide/)
+   - [TypeScript](https://www.typescriptlang.org/docs/)
+   - [Styled-Component](https://styled-components.com/)
+   - [Jest](https://jestjs.io/docs/getting-started)
+   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+## Testes:
+O projeto inclui testes unitários utilizando Jest e React Testing Library. Para executar os testes utilize o comando ``` npm test  ```.
+
+Os testes criados verificam o comportamento do componente ```PokemonList``` em diferentes cenários de uso, 
+garantindo que ele funcione corretamente. 
+Os cenários testados foram: 
+- [ ] Exibição de skeleton durante o carregamento.
+- [ ] Exibição correta dos Pokémons quando filtrados.
+- [ ] Mensagem de "Nenhum Pokémon encontrado" quando o filtro não retorna resultados.
+- [ ] Exibição de todos os Pokémons quando não há nenhum filtro aplicado.
+
+
+## Desafios enfrentados:
+O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, além de pensar em um estilização mais bonita e funcional. Foi minha primeira experiência estruturando testes mais robustos para garantir que os componentes estivessem funcionando como esperado. Um dos maiores desafios foi entender como testar interações como cliques e buscas, mas isso me ajudou a compreender melhor como validar funcionalidades de forma prática. Lidar com a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente ao trabalhar com o grande volume de dados disponíveis. Tive que pensar em soluções inteligentes para poder filtrar e organizar as informações e mostrar apenas o que era relevante, sem ficar um experiência ruim para o usuário.
+
+
+
+
+## Acesse o site:🎉
+
+ Para finalizar, aproveite o projeto e navegue pela Pokédex [aqui](https://pokedex-desafio-frontend.vercel.app/)! 🕹
+ 
+ [⬆ Voltar ao topo](#Desafio-Pokédex)<br>
+  
+
+
+
+
