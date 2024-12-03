@@ -52,10 +52,7 @@ Os cenários testados foram:
 
 
 ## Desafios enfrentados:
-O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, além de pensar em um estilização mais bonita e funcional. Foi minha primeira experiência estruturando testes mais robustos para garantir que os componentes estivessem funcionando como esperado. Um dos maiores desafios foi entender como testar interações como cliques e buscas, mas isso me ajudou a compreender melhor como validar funcionalidades de forma prática. Lidar com a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente ao trabalhar com o grande volume de dados disponíveis. Tive que pensar em soluções inteligentes para poder filtrar e organizar as informações e mostrar apenas o que era relevante, sem ficar um experiência ruim para o usuário.
-
-
-
+O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, além de pensar em um estilização mais bonita e funcional. Foi minha primeira experiência estruturando testes com Jest. Lidar com a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente devido ao grande volume de dados disponíveis. Tive que pensar em soluções inteligentes para poder filtrar e organizar as informações e mostrar apenas o que era relevante, pensando também em um boa experiência para o usuário.
 
 ## Acesse o site:🎉
 
