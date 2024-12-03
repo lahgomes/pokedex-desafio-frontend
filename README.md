@@ -3,14 +3,14 @@
 
 Olá! Esse projeto é um teste para a vaga de Front-end Júnior na empresa [Ília](https://ilia.digital/)
 
-Utilizando a API do [PokeAPI](https://pokeapi.co/) criei uma aplicação conhecida como Pokédex, que permite listar Pokémons e visualizar informações sobre mais detalhadas sobre ele, como seu tipo e suas habilidades. 
+Utilizando a API do [PokeAPI](https://pokeapi.co/) criei uma aplicação conhecida como Pokédex, que permite listar Pokémons e visualizar informações mais detalhadas sobre eles, como seu tipo e suas habilidades. 
 
 ## Descrição
 
 Essa Pokédex permite que os usuários:
 
 - [ ] Visualizem informações detalhadas sobre Pokémons, como Tipo e Habilidades;
-- [ ] Salvem Pokémons favoritos, consultando uma listagem separada;
+- [ ] Salvem seus Pokémons favoritos, consultando uma listagem separada;
 - [ ] Filtre a listagem por tipo de Pokémon;
 - [ ] Busquem Pokémons pelo nome, utilizando uma barra de busca;
 
@@ -52,7 +52,7 @@ Os cenários testados foram:
 
 
 ## Desafios enfrentados:
-O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, além de pensar em um estilização mais bonita e funcional. Foi minha primeira experiência estruturando testes com Jest. Lidar com a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente devido ao grande volume de dados disponíveis. Tive que pensar em soluções inteligentes para poder filtrar e organizar as informações e mostrar apenas o que era relevante, pensando também em um boa experiência para o usuário.
+O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, trabalhar as rotas usando react-router-dom, além de pensar e construir uma aplicação mais bonita e funcional. Foi minha primeira experiência estruturando testes com Jest e um dos maiores desafios foi entender como testar interações como cliques e buscas, mas isso me ajudou a compreender melhor como validar funcionalidades de forma prática. Consumir a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente devido ao grande volume de dados disponíveis. Também me propus em pensar soluções inteligentes para poder filtrar e organizar as informações dos pokémons e mostrar apenas o que era relevante, trazendo também uma boa experiência para o usuário.
 
 ## Acesse o site:🎉
 
