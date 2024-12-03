@@ -52,7 +52,7 @@ Os cenários testados foram:
 
 
 ## Desafios enfrentados:
-O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, trabalhar as rotas usando react-router-dom, além de pensar e construir uma aplicação mais bonita e funcional. Foi minha primeira experiência estruturando testes com Jest e um dos maiores desafios foi entender como testar interações como cliques e buscas, mas isso me ajudou a compreender melhor como validar funcionalidades de forma prática. Consumir a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente devido ao grande volume de dados disponíveis. Também me propus em pensar soluções inteligentes para poder filtrar e organizar as informações dos pokémons e mostrar apenas o que era relevante, trazendo também uma boa experiência para o usuário.
+O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar em soluções mais inteligentes, me desafiar criando testes unitários, trabalhar as rotas usando react-router-dom, além de pensar e construir uma aplicação mais bonita e funcional. </br> Foi minha primeira experiência estruturando testes com Jest e um dos maiores desafios foi entender como testar interações como cliques e buscas, mas isso me ajudou a compreender melhor como validar funcionalidades. </br>Consumir a PokeAPI foi divertido, mas desafiador em alguns momentos, principalmente devido ao grande volume de dados disponíveis.</br> Também me propus em pensar soluções inteligentes para poder filtrar e organizar as informações dos pokémons e mostrar apenas o que era relevante, trazendo também uma boa experiência para o usuário.
 
 ## Acesse o site:🎉
 
