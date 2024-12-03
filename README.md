@@ -21,6 +21,7 @@ Essa Pokédex permite que os usuários:
 - [Testes Unitários](#testes)
 - [Desafios enfrentados](#desafios-enfrentados)
 - [Acesse o site](#acesse-o-site)
+- [Veja imagens](#imagens-do-projeto)
 
 
 ## Como executar o projeto: 
@@ -57,6 +58,18 @@ O teste foi um ótimo desafio para mim, pois me possibilitou a chance de pensar 
 ## Acesse o site:🎉
 
  Para finalizar, aproveite o projeto e navegue pela Pokédex [aqui](https://pokedex-desafio-frontend.vercel.app/)! 🕹
+
+## Imagens do projeto:
+
+![pokedex_home](https://github.com/user-attachments/assets/352c655e-6991-455d-8a92-8ff2082173f2)
+
+![pokedex_detalhes](https://github.com/user-attachments/assets/509bd8e6-6fd9-4a60-b57e-789e8b671d5c)
+
+![pokedex_favoritos](https://github.com/user-attachments/assets/e38a1e1f-f9d7-4fb1-9a4b-98cac7c83b60)
+
+![pokedex_filtro](https://github.com/user-attachments/assets/011af4bd-6e93-422d-851e-f0a7db0c2fc2)
+
+
  
  [⬆ Voltar ao topo](#Desafio-Pokédex)<br>
   
